@@ -1,0 +1,16 @@
+.systemTable{
+  top: 20%;
+  left: 30px;
+  position: fixed;
+ }
+.inputTable{
+  color:black;
+  width: 50%;
+  border: none;
+  letter-spacing: .8px;
+}
+.right-table{
+  top:30.5%;
+  right: 5%;
+  position: fixed;
+}
