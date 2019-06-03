@@ -14,3 +14,7 @@
   right: 5%;
   position: fixed;
 }
+.login{
+background-image: url("../img/background-login.jpg");
+background-size: cover;
+}
