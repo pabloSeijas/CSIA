@@ -13,6 +13,8 @@
     "angular-route": "^1.7.8",
     "bootstrap": "^4.3.1",
     "electron": "^5.0.1",
-    "jquery": "^3.4.1"
+    "jquery": "^3.4.1",
+    "uniq": "^1.0.1",
+    "uniquid": "^1.1.4"
   }
 }

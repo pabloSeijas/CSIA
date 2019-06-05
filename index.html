@@ -9,6 +9,7 @@
     <script src="./node_modules/angular/angular.min.js"></script>
     <script src="./node_modules/angular-route/angular-route.min.js"></script>
     <script src="./js/app.js"></script>
+    <script src="./js/renderer.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/style.css">
@@ -16,7 +17,21 @@
 </head>
 <body class="login" ng-controller="body">
     <header class="toolbar toolbar-header">
-        <h1 class="title"></h1>
+        <div class="title">
+            <span class="nav-group-item pull-right">
+                <span class="icon icon-record" style="color:#e5362d" onclick="closeWindow()";></span>
+            </span>
+        </div>
+         <div class="title">
+            <span class="nav-group-item pull-right">
+                <span class="icon icon-record" style="color:#f3cb07" onclick="minimizeWindow()"></span>
+            </span>
+        </div>
+         <div class="title">
+            <span class="nav-group-item pull-right">
+                <span class="icon icon-record" style="color:#5fc75a" onclick="minMaxWindow()"></span>
+            </span>
+        </div>
     </header>
      <div class="container col-sm-4 col-md-4 col-lg-4" style="margin-top:25%; margin-bottom: 25%" >
         <div class="form-group">
@@ -34,10 +49,7 @@
                 <input type="checkbox"> Recordarme
             </label>
         </div>
-           <a href="main.html"><button type="submit" class="btn btn-primary">Ingresar</button></a> 
+           <a href="main.html" id="log"><button type="submit" class="btn btn-primary">Ingresar</button></a> 
      </div>
-  <script>
-  require('./js/renderer.js')
-  </script> 
 </body>
 </html>

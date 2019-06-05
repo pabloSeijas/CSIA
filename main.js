@@ -10,7 +10,13 @@ function createWindow() {
     win = new BrowserWindow({
         width:1280,
         height :768,
-        frame:false
+        frame:false,
+        resizable : false,
+        minHeight: 1280,
+        minWidth: 768,
+        webPreferences:{
+            nodeIntegration:true
+        }
     })
     win.loadURL(url.format({
         pathname:path.join(__dirname,'index.html'),
@@ -18,6 +24,7 @@ function createWindow() {
         slashes:true
     
     }))
+    
 }
 
 exports.openWindow = () => {
