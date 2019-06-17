@@ -3,6 +3,16 @@
   left: 30px;
   position: fixed;
  }
+ .systemTable2{
+  top: 17.5%;
+  left: 400px;
+  position: fixed;
+ }
+ .systemTable3{
+  top: 17.5%;
+  left: 690px;
+  position: fixed;
+ }
 .inputTable{
   color:black;
   width: 50%;
