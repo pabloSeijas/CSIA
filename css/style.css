@@ -32,9 +32,7 @@
 background-image: url("../img/background-login.jpg");
 background-size: cover;
 }
-.background-main{
-  background-color: rgba(142, 187, 54, 1);
-}
+
 .form-group{
   color:var(--fontcolor);
 }
