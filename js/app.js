@@ -1,7 +1,17 @@
-var app =angular.module("app", ['ngRoute']);
+var app =angular.module("app", []);
 
 
-app.controller("controlador", function($scope){
-    $scope.apellido = "seijas";
+app.controller('wellGeometry', function($scope) {
+    alert("hi")
+    console.log("hi");
     
-}); 
+
+
+    // pablo:String;
+    // pablo = seijas;
+    // console.log(this.pablo);
+
+    // document.click = function(){
+    //     alert("click")
+    // }
+});

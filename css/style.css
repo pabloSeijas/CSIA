@@ -15,13 +15,13 @@
  }
 .inputTable{
   color:black;
-  width: 50%;
+  width: auto;
   border: none;
   letter-spacing: .8px;
 }
 .right-table{
-  top:30.5%;
-  right: 5%;
+  top:29.3%;
+  right: 15%;
   position: fixed;
 }
 /* index.html styles*/

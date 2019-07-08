@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./js/app.js"></script>
     <script src="./node_modules/angular/angular.js"></script>
     <script src="./node_modules/angular-route/angular-route.min.js"></script>
     <script src="./js/routes.js"></script>
-    <script src="./js/app.js"></script>
     <script src="./js/renderer.js"></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -52,10 +52,7 @@
                     <a class="nav-link" href="#!cementTipology">Cement Tipology</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#!formationTipology">Formation Tipology</a>
-                  </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#!stressData">STRESS DATA</a>
+                      <a class="nav-link" href="#!imputParameters">Imput Parameters</a>
                   </li>
                 </ul>
             </div>
@@ -64,17 +61,5 @@
        <div ng-view>
          
        </div>
-
-        <footer class="toolbar toolbar-footer" style="position: fixed; left: 0; bottom: 0; width: 100%">
-            <div class="toolbar-actions">
-                <button class="btn btn-default">
-                  Anterior
-                </button>
-
-                <button class="btn pull-right" style="background-color: #417afe; color:#f2f2f7">
-                  Siguiente
-                </button>
-            </div>
-        </footer>
 </body>
 </html>
