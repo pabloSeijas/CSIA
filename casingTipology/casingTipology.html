@@ -1,4 +1,4 @@
-<div class="systemTable">
+<div class="systemTable" ng-controller="casingTipology">
     <div class="">
             <select name="" id="">
                 <option value=""> Steel default</option>
@@ -14,66 +14,67 @@
                 <tbody>
                   <tr>
                     <th scope="row"class=>Casing Diameter</th>
-                    <td align="center"><input type="text" class="inputTable"></td>
+                    <td align="center"><input type="text" ng-model="cDiameter" class="inputTable"></td>
                     <td align="center" ><b>m</b></td>
                   </tr>
                   <tr>
                     <th scope="row">Casing Weight</th>
-                    <td align="center"><input type="text" class="inputTable"></td>
+                    <td align="center"><input type="text" ng-model="cWeight" class="inputTable"></td>
                     <td align="center"><b>𝐾𝑔/𝑚</b></td>
                   </tr>
                   <tr>
                     <th scope="row">Casing Internal Diameter </th>
-                    <td align="center"><input type="text" class="inputTable"></td>
+                    <td align="center"><input type="text" ng-model="ciDiameter" class="inputTable"></td>
                     <td align="center"><b>m</b></td>
                   </tr>
                   <tr>
                     <th scope="row">Casing Poisson's Ratio</th>
-                    <td align="center"><input type="text" class="inputTable"></td>
+                    <td align="center"><input type="text" ng-model="cpRatio" class="inputTable"></td>
                     <td align="center"><b>Dimensionless</b></td>
                   </tr>
                   <tr>
                     <th scope="row"> Young's Modulus Casing</th>
-                    <td align="center"><input type="text" class="inputTable"></td>
+                    <td align="center"><input type="text" ng-model="ymCasing" class="inputTable"></td>
                     <td align="center"><b>Pa</b></td>
                   </tr>
                   <tr>
                     <th scope="row">Thermal Conductivity of Casing</th>
-                    <td align="center"><input type="text" class="inputTable"></td>
+                    <td align="center"><input type="text" ng-model="tcCasing" class="inputTable"></td>
                     <td align="center"><b>𝑊⁄𝑚 𝐶^𝑜 </b></td> 
                   </tr>
                   <tr>
                     <th scope="row">Coefficient of linear expansion for Casing</th>
-                    <td align="center"><input type="text" class="inputTable"></td>
+                    <td align="center"><input type="text" ng-model="cleCasing" class="inputTable"></td>
                     <td align="center"><b>1⁄𝐶^𝑜 </b></td>            
                   </tr>
                   <tr>
                     <th scope="row" class="bg-dark text-muted">Internal Casing Radius</th>
-                    <td align="center"><input type="text" class="inputTable"></td>
+                    <td align="center"><input type="text" class="inputTable" ng-model="icRadius"></td>
                     <td align="center" class="bg-dark text-muted"><b>m</b></td>            
                   </tr>
                   <tr>
                     <th scope="row" class="bg-dark text-muted">External Casing Radius</th>
-                    <td align="center"><input type="text" class="inputTable"></td>
+                    <td align="center"><input type="text" class="inputTable" ng-model="ecRadius"></td>
                     <td align="center" class="bg-dark text-muted"><b>°C</b></td>            
                   </tr>
                   <tr>
                     <th scope="row" class="bg-dark text-muted">Casing Thickness</th>
-                    <td align="center"><input type="text" class="inputTable"></td>
+                    <td align="center"><input type="text" ng-model="cThickness" class="inputTable"></td>
                     <td align="center" class="bg-dark text-muted"><b>Pa</b></td>            
                   </tr>
                 </tbody>
       </table>
     </div>
+    <footer class="toolbar toolbar-footer" style="position: fixed; left: 0; bottom: 0; width: 100%">
+        <div class="toolbar-actions">
+            <button class="btn btn-default" onclick="casingPrev()">
+              prev
+            </button>
+    
+            <button class="btn pull-right" onclick="casingNext()" style="background-color: #417afe; color:#f2f2f7">
+              Next
+            </button>
+        </div>
+    </footer>  
 </div>  
-<footer class="toolbar toolbar-footer" style="position: fixed; left: 0; bottom: 0; width: 100%">
-    <div class="toolbar-actions">
-        <button class="btn btn-default">
-          prev
-        </button>
 
-        <button class="btn pull-right" style="background-color: #417afe; color:#f2f2f7">
-          Next
-        </button>
-    </div>
-</footer>  
