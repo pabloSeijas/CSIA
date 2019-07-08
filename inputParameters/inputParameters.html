@@ -1,50 +1,51 @@
-<div class="systemTable">
+<div class="systemTable" ng-controller="inputParameters">
       <table class="table table-bordered table-hover">
           <tbody>
             <tr>
               <th scope="row"class="bg-dark text-muted">Initial Internal Pressure</th>
-              <td align="center"><input type="text" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="iiPressure" class="inputTable"></td>
               <td align="center" class="bg-dark text-muted" ><b>Pa</b></td>
             </tr>
             <tr>
               <th scope="row" >Final Internal Pressure</th>
-              <td align="center"><input type="text" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="fiPressure" class="inputTable"></td>
               <td align="center" ><b>Pa</b></td>
             </tr>
             <tr>
               <th scope="row" class="bg-dark text-muted">Internal Pressure Change</th>
-              <td align="center"><input type="text" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="ipChange" class="inputTable"></td>
               <td align="center" class="bg-dark text-muted"><b>Pa</b></td>
             </tr>
             <tr>
               <th scope="row" class="bg-dark text-muted">Initial internal Temperature </th>
-              <td align="center"><input type="text" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="iiTemperature" class="inputTable"></td>
               <td align="center" class="bg-dark text-muted"><b>C°</b></td>
             </tr>
             <tr>
               <th scope="row">Final internal Temperature </th>
-              <td align="center"><input type="text" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="fiTemperature" class="inputTable"></td>
               <td align="center"><b>C°</b></td>
             </tr>
             <tr>
               <th scope="row" class="bg-dark text-muted">Internal Temperature Change </th>
-              <td align="center"><input type="text" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="itChange" class="inputTable"></td>
               <td align="center" class="bg-dark text-muted"><b>C°</b></td>
             </tr>
           </tbody>
       </table>
+      <footer class="toolbar toolbar-footer" style="position: fixed; left: 0; bottom: 0; width: 100%">
+          <div class="toolbar-actions">
+              <button class="btn btn-default" onclick="inputPrev()">
+                prev
+              </button>
+      
+              <button class="btn pull-right" onclick="calculate()" style="background-color: #417afe; color:#f2f2f7">
+                Calculate
+              </button>
+          </div>
+      </footer> 
   </div>
-<footer class="toolbar toolbar-footer" style="position: fixed; left: 0; bottom: 0; width: 100%">
-    <div class="toolbar-actions">
-        <button class="btn btn-default">
-          prev
-        </button>
 
-        <button class="btn pull-right" style="background-color: #417afe; color:#f2f2f7">
-          Calculate
-        </button>
-    </div>
-</footer> 
 
 
  
