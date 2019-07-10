@@ -4,47 +4,47 @@
           <tbody>
             <tr>
               <th scope="row"class=>Open hole Diameter</th>
-              <td align="center"><input type="text" ng-model="ohDiameter" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="ohDiameter" ng-change="calculateWell()" class="inputTable"></td>
               <td align="center" ><b>m</b></td>
             </tr>
             <tr>
               <th scope="row">Hole vertical Depht</th>
-              <td align="center"><input type="text" ng-model="hvDepht" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="hvDepht" ng-change="calculateWell()" class="inputTable"></td>
               <td align="center"><b>m</b></td>
             </tr>
             <tr>
               <th scope="row">Overburden Pressure Gradient</th>
-              <td align="center"><input type="text" ng-model="opGradient" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="opGradient" ng-change="calculateWell()" class="inputTable"></td>
               <td align="center"><b>kpa/m</b></td>
             </tr>
             <tr>
               <th scope="row">Formation Temperature Gradient</th>
-              <td align="center"><input type="text" ng-model="ftGradient" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="ftGradient" ng-change="calculateWell()" class="inputTable"></td>
               <td align="center"><b>°C/m</b></td>
             </tr>
             <tr>
               <th scope="row">Biot poroelastic constant</th>
-              <td align="center"><input type="text" ng-model="bpConstant" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="bpConstant" ng-change="calculateWell()" class="inputTable"></td>
               <td align="center"><b>Dimensionless</b></td>
             </tr>
             <tr>
               <th scope="row">Pore Pressure</th>
-              <td align="center"><input type="text" ng-model="pPressure" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="pPressure" ng-change="calculateWell()" class="inputTable"></td>
               <td align="center"><b>Pa</b></td>
             </tr>
             <tr>
               <th scope="row">Initial Mud Density</th>
-              <td align="center"><input type="text" ng-model="imDensity" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="imDensity" ng-change="calculateWell()" class="inputTable"></td>
               <td align="center"><b>𝑃𝑎/𝑚^3</b></td> 
             </tr>
             <tr>
               <th scope="row">Far Field Formation Radius</th>
-              <td align="center"><input type="text" ng-model="fffRadius" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="fffRadius" ng-change="calculateWell()" class="inputTable"></td>
               <td align="center"><b>m</b></td>            
             </tr>
             <tr>
               <th scope="row"> Formation Poisson's Ratio</th>
-              <td align="center"><input type="text" ng-model="fpRatio" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="fpRatio" ng-change="calculateWell()" class="inputTable"></td>
               <td align="center"><b>Dimensionless</b></td>            
             </tr>
           </tbody>
@@ -53,47 +53,47 @@
         <table class="table table-bordered table-hover">
           <tr>
               <th scope="row"> Young's Modulus Formation</th>
-              <td align="center"><input type="text" ng-model="ymFormation"  class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="ymFormation" ng-change="calculateWell()"  class="inputTable"></td>
               <td align="center"><b>Pa</b></td>            
           </tr>
           <tr>
               <th scope="row"> Thermal Conductivity of formation</th>
-              <td align="center"><input type="text"ng-model="thcFormation"  class="inputTable"></td>
+              <td align="center"><input type="text"ng-model="thcFormation" ng-change="calculateWell()"  class="inputTable"></td>
               <td align="center"><b>𝑊⁄𝑚 𝐶^𝑜 </b></td>            
           </tr>
           <tr>
               <th scope="row"> Coefficient of linear expansion for Formation</th>
-              <td align="center"><input type="text" ng-model="cleFormation"  class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="cleFormation" ng-change="calculateWell()"  class="inputTable"></td>
               <td align="center"><b>1⁄𝐶^𝑜 </b></td>            
           </tr>
           <tr>
               <th scope="row"> Tectonic Stress</th>
-              <td align="center"><input type="text" ng-model="tStress"  class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="tStress" ng-change="calculateWell()" class="inputTable"></td>
               <td align="center"><b>Pa</b></td>            
           </tr>
           <tr>
-              <th scope="row"> Open Hole Radius</th>
-              <td align="center"><input type="text" ng-model="ohRadius"  class="inputTable"></td>
-              <td align="center"><b>m</b></td>            
+              <th scope="row" class="bg-dark text-muted"> Open Hole Radius</th>
+              <td align="center"><input type="text" ng-model="ohRadius" ng-readonly="true" class="inputTable"></td>
+              <td align="center" class="bg-dark text-muted"><b>m</b></td>            
           </tr>
           <tr>
               <th scope="row" class="bg-dark text-muted"> Well Formation Temperature</th>
-              <td align="center" class="text-muted"><input type="text" ng-model="wfTemperature" class="inputTable"></td>
+              <td align="center" class="text-muted"><input type="text" ng-readonly="true" ng-model="wfTemperature" class="inputTable"></td>
               <td align="center" class="bg-dark text-muted"><b>°C</b></td>            
           </tr>
         <tr>
               <th scope="row" class="bg-dark text-muted"> Vertical Stress</th>
-              <td align="center" class="text-muted"><input type="text" ng-model="vStress"  class="inputTable"></td>
+              <td align="center" class="text-muted"><input type="text" ng-readonly="true" ng-model="vStress"  class="inputTable"></td>
               <td align="center" class="bg-dark text-muted"><b>Pa</b></td>            
         </tr>
         <tr>
               <th scope="row" class="bg-dark text-muted"> Min Horizontal Stress</th>
-              <td align="center" class="text-muted"><input type="text" ng-model="mihStress"  class="inputTable"></td>
+              <td align="center" class="text-muted"><input type="text" ng-readonly="true" ng-model="mihStress"  class="inputTable"></td>
               <td align="center" class="bg-dark text-muted"><b>Pa</b></td>            
         </tr>
         <tr>
               <th scope="row" class="bg-dark text-muted"> Max Horizontal Stress</th>
-              <td align="center" class="text-muted"><input type="text" ng-model="mahStress" class="inputTable"></td>
+              <td align="center" class="text-muted"><input type="text" ng-readonly="true" ng-model="mahStress" class="inputTable"></td>
               <td align="center" class="bg-dark text-muted"><b>Pa</b></td>            
         </tr>
         </table>

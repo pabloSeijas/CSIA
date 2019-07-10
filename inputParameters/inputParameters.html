@@ -3,12 +3,12 @@
           <tbody>
             <tr>
               <th scope="row"class="bg-dark text-muted">Initial Internal Pressure</th>
-              <td align="center"><input type="text" ng-model="iiPressure" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="iiPressure" ng-change="calculateiParameters()" class="inputTable"></td>
               <td align="center" class="bg-dark text-muted" ><b>Pa</b></td>
             </tr>
             <tr>
               <th scope="row" >Final Internal Pressure</th>
-              <td align="center"><input type="text" ng-model="fiPressure" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="fiPressure"  ng-change="calculateiParameters()" class="inputTable"></td>
               <td align="center" ><b>Pa</b></td>
             </tr>
             <tr>
@@ -18,17 +18,17 @@
             </tr>
             <tr>
               <th scope="row" class="bg-dark text-muted">Initial internal Temperature </th>
-              <td align="center"><input type="text" ng-model="iiTemperature" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="iiTemperature"  class="inputTable"></td>
               <td align="center" class="bg-dark text-muted"><b>C°</b></td>
             </tr>
             <tr>
               <th scope="row">Final internal Temperature </th>
-              <td align="center"><input type="text" ng-model="fiTemperature" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="fiTemperature" ng-change="calculateiParameters()"class="inputTable"></td>
               <td align="center"><b>C°</b></td>
             </tr>
             <tr>
               <th scope="row" class="bg-dark text-muted">Internal Temperature Change </th>
-              <td align="center"><input type="text" ng-model="itChange" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="itChange"  class="inputTable"></td>
               <td align="center" class="bg-dark text-muted"><b>C°</b></td>
             </tr>
           </tbody>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="CSIA-app">
+<html lang="en" ng-app="CSIA-app" ng-controller="main">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,17 +42,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav mr-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="#!wellGeometry">Well Geometry</a>
+                  <li ng-class="getClass('/wellGeometry')">
+                    <a class="nav-link">Well Geometry</a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#!casingTipology">Casings Tipology </a>
+                  <li ng-class="getClass('/casingTipology')">
+                    <a class="nav-link">Casings Tipology </a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#!cementTipology">Cement Tipology</a>
+                  <li ng-class="getClass('/cementTipology')">
+                    <a class="nav-link">Cement Tipology</a>
                   </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="#!inputParameters">Input Parameters</a>
+                  <li ng-class=" getClass('/inputParameters')">
+                      <a class="nav-link">Input Parameters</a>
                   </li>
                 </ul>
             </div>

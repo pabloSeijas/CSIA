@@ -14,37 +14,37 @@
                 <tbody>
                   <tr>
                     <th scope="row"class=>Casing Diameter</th>
-                    <td align="center"><input type="text" ng-model="cDiameter" class="inputTable"></td>
+                    <td align="center"><input type="text" ng-model="cDiameter" ng-change="calculateCasing()" class="inputTable"></td>
                     <td align="center" ><b>m</b></td>
                   </tr>
                   <tr>
                     <th scope="row">Casing Weight</th>
-                    <td align="center"><input type="text" ng-model="cWeight" class="inputTable"></td>
+                    <td align="center"><input type="text" ng-model="cWeight" ng-change="calculateCasing()" class="inputTable"></td>
                     <td align="center"><b>𝐾𝑔/𝑚</b></td>
                   </tr>
                   <tr>
                     <th scope="row">Casing Internal Diameter </th>
-                    <td align="center"><input type="text" ng-model="ciDiameter" class="inputTable"></td>
+                    <td align="center"><input type="text" ng-model="ciDiameter" ng-change="calculateCasing()" class="inputTable"></td>
                     <td align="center"><b>m</b></td>
                   </tr>
                   <tr>
                     <th scope="row">Casing Poisson's Ratio</th>
-                    <td align="center"><input type="text" ng-model="cpRatio" class="inputTable"></td>
+                    <td align="center"><input type="text" ng-model="cpRatio" ng-change="calculateCasing()" class="inputTable"></td>
                     <td align="center"><b>Dimensionless</b></td>
                   </tr>
                   <tr>
                     <th scope="row"> Young's Modulus Casing</th>
-                    <td align="center"><input type="text" ng-model="ymCasing" class="inputTable"></td>
+                    <td align="center"><input type="text" ng-model="ymCasing" ng-change="calculateCasing()" class="inputTable"></td>
                     <td align="center"><b>Pa</b></td>
                   </tr>
                   <tr>
                     <th scope="row">Thermal Conductivity of Casing</th>
-                    <td align="center"><input type="text" ng-model="tcCasing" class="inputTable"></td>
+                    <td align="center"><input type="text" ng-model="tcCasing" ng-change="calculateCasing()" class="inputTable"></td>
                     <td align="center"><b>𝑊⁄𝑚 𝐶^𝑜 </b></td> 
                   </tr>
                   <tr>
                     <th scope="row">Coefficient of linear expansion for Casing</th>
-                    <td align="center"><input type="text" ng-model="cleCasing" class="inputTable"></td>
+                    <td align="center"><input type="text" ng-model="cleCasing" ng-change="calculateCasing()" class="inputTable"></td>
                     <td align="center"><b>1⁄𝐶^𝑜 </b></td>            
                   </tr>
                   <tr>
