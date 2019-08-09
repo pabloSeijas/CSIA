@@ -36,3 +36,10 @@ background-size: cover;
 .form-group{
   color:var(--fontcolor);
 }
+.bg-gray{
+  background-color:#A3AAAE!important
+}
+
+a.bg-gray:focus,a.bg-gray:hover,button.bg-gray:focus,button.bg-gray:hover{
+  background-color:#A3AAAE!important
+}
