@@ -1,3 +1,20 @@
+const mysql = require('mysql');
+const connection = mysql.createConnection({
+    host        :'localhost',
+    user        :'root',
+    password    : null,
+    database    :'csia'
+})
+
+connection.connect(function(err){
+    if(err){
+        console.log(err.code);
+        console.log(err.fatal);
+    }
+})
+
+
+
 var app = angular.module("CSIA-app", ["ngRoute"]);
 
 app.config(function($routeProvider) {$routeProvider
@@ -13,7 +30,7 @@ app.config(function($routeProvider) {$routeProvider
     })
 });
 
-var ipL, ipTigeo, ippmiInitial;
+var ipL, ipTigeo, ippmiInitial,wGeometry,caTipology,ceTipology,iParameters;
 
 app.controller('main',function($scope, $location){
     $scope.getClass = function (path) {
@@ -27,6 +44,23 @@ app.controller('wellGeometry', function($scope, $window) {
     
     
    $scope.calculateWell = function(){
+    // let query = 'SELECT * FROM wellgeometry'
+    //     connection.query(query, function(err, rows, fields){
+    //         if(err){
+    //             console.log('Hubo un Error al realizar la consulta');
+    //             console.log(err.message);
+    //             return
+    //         }
+        
+    //         let row = rows[0]
+    //         console.log(row.OHD)
+    //     $scope.ohDiameter = row.OHD; 
+    //     connection.end(function(){
+
+    //     });
+
+    // })
+    
     OH = $scope.ohDiameter;
     L = $scope.hvDepht;
     OBG = $scope.opGradient;
@@ -54,24 +88,41 @@ app.controller('wellGeometry', function($scope, $window) {
         ipL = L;
         ipTigeo = tiGeo;
         ippmiInitial = Pminitial;
+       
 
     }
     
    
-    tiGeo = $scope.wfTemperature;
-    oZ = $scope.vStress;
-    oHmin = $scope.mihStress;
-    oHmax = $scope.mahStress;
+    // tiGeo = $scope.wfTemperature;
+    // oZ = $scope.vStress;
+    // oHmin = $scope.mihStress;
+    // oHmax = $scope.mahStress;
     wellNext = function(){
+
+        wGeometry = {
+            ohDiameter:Number(OH),
+            hvDepht: Number(L),
+            opGradient: Number(OBG),
+            ftGradient: Number(FTG),
+            bpConstant: Number(Biot),
+            pPressure: Number(Pp),
+            imDensity: Number(Pminitial),
+            fffRadius: Number(rd),
+            fpRatio: Number(yFormation),
+            ymFormation: Number(eFormation),
+            thcFormation: Number(kForm),
+            cleFormation: Number(aForm),
+            tStress:Number(oTect),
+            ohRadius: rc,
+            wfTemperature: tiGeo,
+            vStress: oZ,
+            mihStress: oHmin,
+            mahStress: oHmax
+        }
         
-        
-
-        
-
-       
 
 
-
+        console.log(wGeometry)
 
 
 
@@ -114,8 +165,22 @@ app.controller('casingTipology', function($scope,$window) {
     
     
     casingNext = function(){
-       
         
+        caTipology = {
+            cDiameter: Number(ODcasing),
+            cWeight: Number(Wcasing),
+            ciDiameter: Number(IDcasing),
+            cpRatio: Number(Ysteel),
+            ymCasing: Number(Esteel),
+            tcCasing: Number(Ksteel),
+            cleCasing: Number(Asteel),
+            icRadius: ra,
+            ecRadius: rb,
+            cThickness: THcasing
+        }
+   
+        console.log(wGeometry)
+        console.log(caTipology)
 
 
         $window.location.href = "#!cementTipology";
@@ -139,7 +204,19 @@ app.controller('cementTipology', function($scope,$window) {
         C = $scope.cCement;
         O = $scope.aiFriction;
 
-       
+        ceTipology = {
+            cDensity: Number(Pcement),
+            ucStrength: Number(UCS),
+            tStrength: Number(To),
+            cpRatio: Number(ycement),
+            ymCement: Number(Ecement),
+            tcCement: Number(Kcement),
+            cleCement: Number(Acement),
+            cCement: Number(C),
+            aiFriction: Number(O)
+        }
+
+       console.log(ceTipology)
 
         $window.location.href ="#!inputParameters"
     }
@@ -151,26 +228,42 @@ cementNext = function(){
 
 }
 app.controller('inputParameters', function($scope,$window) {
-var Pinitial, Pifinal, Pi, Tinitial, Tfinal, T1;
-    $scope.calculateiParameters = function(){
-        Pifinal = $scope.fiPressure;
-        Tfinal = $scope.fiTemperature;
-        
-        Pinitial = ippmiInitial * ipL;
-        $scope.iiPressure = Pinitial;
+    var Pinitial, Pifinal, Pi, Tinitial, Tfinal, T1;
+        $scope.calculateiParameters = function(){
+            Pifinal = $scope.fiPressure;
+            Tfinal = $scope.fiTemperature;
+            
+            Pinitial = ippmiInitial * ipL;
+            $scope.iiPressure = Pinitial;
 
-        Pi = Pifinal - Pinitial;
-        $scope.ipChange = Pi;
+            Pi = Pifinal - Pinitial;
+            $scope.ipChange = Pi;
 
-        Tinitial = ipTigeo ;
-        $scope.iiTemperature = Tinitial;
+            Tinitial = ipTigeo ;
+            $scope.iiTemperature = Tinitial;
 
-        T1 = Tfinal - Tinitial;
-        $scope.itChange = T1 ;
+            T1 = Tfinal - Tinitial;
+            $scope.itChange = T1 ;
 
-    }
-        
-    inputPrev = function(){
-        $window.location.href = "#!cementTipology";
-    }
+        }
+        calculate = function(){
+            iParameters = {
+                fiPressure: Number(Pifinal),
+                fiTemperature: Number(Tfinal),
+                iiPressure: Pinitial,
+                ipChange: Pi,
+                iiTemperature: ipTigeo,
+                itChange: T1
+
+            }
+            console.log(wGeometry)
+            console.log(caTipology)
+            console.log(ceTipology)
+            console.log(iParameters)
+            var pop = confirm("¿Desea guardar la data ingresada?");
+            
+        }    
+        inputPrev = function(){
+            $window.location.href = "#!cementTipology";
+        }
 });
