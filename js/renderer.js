@@ -10,13 +10,13 @@ const { remote, ipcRenderer } = require('electron')
     window.close(); 
     } 
 
-    function minMaxWindow(){
-        const window = remote.getCurrentWindow()
-        if(window.isMaximized()) {
-            window.unmaximize()
-        } else {
-            window.maximize()
-        }
+    // function minMaxWindow(){
+    //     const window = remote.getCurrentWindow()
+    //     if(window.isMaximized()) {
+    //         window.unmaximize()
+    //     } else {
+    //         window.maximize()
+    //     }
     
-    }
+    // }
     

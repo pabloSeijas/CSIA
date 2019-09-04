@@ -28,6 +28,7 @@ app.config(function($routeProvider) {$routeProvider
     })
     .when("/cementTipology", {templateUrl: "./cementTipology/cementTipology.html"
     })
+    .when("/result", {templateUrl:"./result/result.html"})
 });
 
 var ipL, ipTigeo, ippmiInitial,wGeometry,caTipology,ceTipology,iParameters;
@@ -260,10 +261,25 @@ app.controller('inputParameters', function($scope,$window) {
             console.log(caTipology)
             console.log(ceTipology)
             console.log(iParameters)
-            var pop = confirm("¿Desea guardar la data ingresada?");
+            $window.location.href = "#!result";
+            confirm("¿Los datos ingresados son correctos?");
             
         }    
         inputPrev = function(){
             $window.location.href = "#!cementTipology";
         }
+});
+app.controller('result', function($scope, $window, $timeout) {
+
+    
+    $timeout( function(){
+        $scope.hideSpinner = "true"
+    }, 1 );
+    $timeout( function(){
+        $scope.showContent = "false"
+    }, 1);
+    back = function(){
+        alert("Back button");
+        $window.location.href ="#!inputParameters"
+    }
 });

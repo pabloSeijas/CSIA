@@ -1,0 +1,63 @@
+
+<div class="" ng-controller="result">
+    
+    <div class="center" ng-hide="hideSpinner">
+        <div class="spinner-grow spinner-grow-sm"  style="width: 10rem; height: 10rem; margin: auto;" role="status">
+            <span class="sr-only"><h1>Loading...</h1></span>
+            
+        </div>
+    </div>
+    
+    <div ng-show="showContent" >
+        
+        <div class="container row" style="margin-left: auto; margin-top: 10%;" >
+            <div class="col-md-2 ">
+                <div class="alert">
+                    <div class="revest">
+                        <div class="innerDebounding ">
+                            <div class="pipe "></div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" text-dark"><b>Inner Debounding</b></div>
+            </div>
+            <div class="col-md-2 ">
+                <div class="alert">
+                    <div class="revest">
+                        <div class="outerDebounding ">
+                            <div class="pipe border border-dark"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class=" text-dark"><b>Outer Debounding</b></div>
+            </div>
+            <div class="col-md-2 ">
+                <div class="alert">
+                    <div class="shearDamage"></div>
+                    <div class="revest">
+                        <div class="">
+                            <div class="pipe border border-dark" style="margin-top:10px; margin-left:10px"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-dark"><b>Shear Damage</b></div>
+            </div>
+            <div class="col-md-2 ">
+                <div class="alert">
+                    <div class="radialCrack">
+                        <div class="pipe border border-dark" style="margin-left:10px;margin-top:10px"></div>
+                    </div>
+                </div>
+                <div class="text-dark"><b>Radial Cracking</b></div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="toolbar toolbar-footer" style="position: fixed; left: 0; bottom: 0; width: 100%">
+        <div class="toolbar-actions">
+            <button class="btn btn-default" onclick="back()">
+              Back
+            </button>
+        </div>
+    </footer> 
+</div>

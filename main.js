@@ -8,16 +8,17 @@ let win
 
 function createWindow() {
     win = new BrowserWindow({
-        width:1280,
-        height :768,
+        // width:1280,
+        // height :768,
         frame:false,
-        resizable : false,
-        minHeight: 1280,
-        minWidth: 768,
+        resizable : true,
+        // minHeight: 1280,
+        // minWidth: 768,
         webPreferences:{
             nodeIntegration:true
         }
     })
+    win.maximize()
     win.loadURL(url.format({
         pathname:path.join(__dirname,'index.html'),
         protocol:'file',
