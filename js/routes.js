@@ -28,7 +28,9 @@ app.config(function($routeProvider) {$routeProvider
     })
     .when("/cementTipology", {templateUrl: "./cementTipology/cementTipology.html"
     })
-    .when("/result", {templateUrl:"./result/result.html"})
+    .when("/result", {templateUrl:"./result/result.html"
+    })
+    .when("/save", {templateUrl : "./save/save.html"})
 });
 
 var ipL, ipTigeo, ippmiInitial,wGeometry,caTipology,ceTipology,iParameters;
@@ -45,36 +47,36 @@ app.controller('wellGeometry', function($scope, $window) {
     
     
    $scope.calculateWell = function(){
-    // let query = 'SELECT * FROM wellgeometry'
-    //     connection.query(query, function(err, rows, fields){
-    //         if(err){
-    //             console.log('Hubo un Error al realizar la consulta');
-    //             console.log(err.message);
-    //             return
-    //         }
-        
-    //         let row = rows[0]
-    //         console.log(row.OHD)
-    //     $scope.ohDiameter = row.OHD; 
-    //     connection.end(function(){
+        // let query = 'SELECT * FROM wellgeometry'
+        //     connection.query(query, function(err, rows, fields){
+        //         if(err){
+        //             console.log('Hubo un Error al realizar la consulta');
+        //             console.log(err.message);
+        //             return
+        //         }
+            
+        //         let row = rows[0]
+        //         console.log(row.OHD)
+        //     $scope.ohDiameter = row.OHD; 
+        //     connection.end(function(){
 
-    //     });
+        //     });
 
-    // })
+        // })
     
-    OH = $scope.ohDiameter;
-    L = $scope.hvDepht;
-    OBG = $scope.opGradient;
-    FTG = $scope.ftGradient;
-    Biot = $scope.bpConstant;
-    Pp = $scope.pPressure;
-    Pminitial = $scope.imDensity;
-    rd = $scope.fffRadius;
-    yFormation = $scope.fpRatio;
-    eFormation = $scope.ymFormation;
-    kForm = $scope.thcFormation;
-    aForm = $scope.cleFormation;
-    oTect = $scope.tStress;
+        OH = $scope.ohDiameter;
+        L = $scope.hvDepht;
+        OBG = $scope.opGradient;
+        FTG = $scope.ftGradient;
+        Biot = $scope.bpConstant;
+        Pp = $scope.pPressure;
+        Pminitial = $scope.imDensity;
+        rd = $scope.fffRadius;
+        yFormation = $scope.fpRatio;
+        eFormation = $scope.ymFormation;
+        kForm = $scope.thcFormation;
+        aForm = $scope.cleFormation;
+        oTect = $scope.tStress;
       // <----Calculated---->
         rc = OH/2;
         tiGeo = FTG * L;
@@ -261,25 +263,40 @@ app.controller('inputParameters', function($scope,$window) {
             console.log(caTipology)
             console.log(ceTipology)
             console.log(iParameters)
-            $window.location.href = "#!result";
-            confirm("¿Los datos ingresados son correctos?");
+
+            if(confirm("¿Desea guardar los resultados y proceder?") === true){
+                $window.location.href = "#!save";
+            }
             
         }    
         inputPrev = function(){
             $window.location.href = "#!cementTipology";
         }
 });
+
+app.controller('saveData', function($scope,$window) {
+    back = function(){
+        $window.location.href ="#!inputParameters"
+    }
+    save = function(){
+        if(confirm("¿Está seguro de guardar los datos?") === true){
+            $window.location.href = "#!result";
+        }
+        
+    }
+});
+
 app.controller('result', function($scope, $window, $timeout) {
 
     
     $timeout( function(){
         $scope.hideSpinner = "true"
-    }, 1 );
+        $scope.message = "Guardando"
+    }, 3000 );
     $timeout( function(){
         $scope.showContent = "false"
-    }, 1);
+    }, 3000);
     back = function(){
-        alert("Back button");
-        $window.location.href ="#!inputParameters"
+        $window.location.href ="#!save"
     }
 });

@@ -2,11 +2,23 @@
 <div class="" ng-controller="result">
     
     <div class="center" ng-hide="hideSpinner">
-        <div class="spinner-grow spinner-grow-sm"  style="width: 10rem; height: 10rem; margin: auto;" role="status">
-            <span class="sr-only"><h1>Loading...</h1></span>
+        <div style="margin: auto">
+                <h1>Guardando</h1>
+        </div>
+        
+        <div class="spinner-grow spinner-grow-sm"  style="width: 10rem; height: 10rem; margin: auto; margin-left: -500px" role="status">
             
         </div>
     </div>
+    <div class="center" ng-hide="hideSpinner">
+            <div style="margin: auto">
+                    <h1>Procesando</h1>
+            </div>
+            
+            <div class="spinner-grow spinner-grow-sm"  style="width: 10rem; height: 10rem; margin: auto; margin-left: -500px" role="status">
+                
+            </div>
+        </div>
     
     <div ng-show="showContent" >
         
