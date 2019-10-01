@@ -3,7 +3,7 @@
           <tbody>
             <tr>
               <th scope="row"class="bg-gray text-muted">Initial Internal Pressure</th>
-              <td align="center"><input type="text" ng-model="iiPressure" ng-change="calculateiParameters()" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="iiPressure" ng-readonly="true" ng-change="calculateiParameters()" class="inputTable"></td>
               <td align="center" class="bg-gray text-muted" ><b>Pa</b></td>
             </tr>
             <tr>
@@ -13,12 +13,12 @@
             </tr>
             <tr>
               <th scope="row" class="bg-gray text-muted">Internal Pressure Change</th>
-              <td align="center"><input type="text" ng-model="ipChange" class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="ipChange" ng-readonly="true" class="inputTable"></td>
               <td align="center" class="bg-gray text-muted"><b>Pa</b></td>
             </tr>
             <tr>
               <th scope="row" class="bg-gray text-muted">Initial internal Temperature </th>
-              <td align="center"><input type="text" ng-model="iiTemperature"  class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="iiTemperature" ng-readonly="true"  class="inputTable"></td>
               <td align="center" class="bg-gray text-muted"><b>C°</b></td>
             </tr>
             <tr>
@@ -28,7 +28,7 @@
             </tr>
             <tr>
               <th scope="row" class="bg-gray text-muted">Internal Temperature Change </th>
-              <td align="center"><input type="text" ng-model="itChange"  class="inputTable"></td>
+              <td align="center"><input type="text" ng-model="itChange" ng-readonly="true"  class="inputTable"></td>
               <td align="center" class="bg-gray text-muted"><b>C°</b></td>
             </tr>
           </tbody>
