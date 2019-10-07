@@ -279,8 +279,16 @@ app.controller('saveData', function($scope,$window) {
         $window.location.href ="#!inputParameters"
     }
     save = function(){
-        if(confirm("¿Está seguro de guardar los datos?") === true){
-            $window.location.href = "#!result";
+        var nameRegister = $scope.name;
+        if(nameRegister === undefined){
+            
+
+
+        }else{
+            if(confirm("¿Está seguro de guardar los datos?") === true){
+                $window.location.href = "#!result";
+            }
+            
         }
         
     }
@@ -291,11 +299,16 @@ app.controller('result', function($scope, $window, $timeout) {
     
     $timeout( function(){
         $scope.hideSpinner = "true"
-        $scope.message = "Guardando"
     }, 3000 );
     $timeout( function(){
+        $scope.procesando = "false"
+    }, 3000 );
+    $timeout( function(){
+        $scope.procesando2 = "true"
+    }, 6000);
+    $timeout( function(){
         $scope.showContent = "false"
-    }, 3000);
+    }, 6000);
     back = function(){
         $window.location.href ="#!save"
     }
