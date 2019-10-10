@@ -96,40 +96,50 @@ app.controller('wellGeometry', function($scope, $window) {
     }
     
    
-    // tiGeo = $scope.wfTemperature;
-    // oZ = $scope.vStress;
-    // oHmin = $scope.mihStress;
-    // oHmax = $scope.mahStress;
+    tiGeo = $scope.wfTemperature;
+    oZ = $scope.vStress;
+    oHmin = $scope.mihStress;
+    oHmax = $scope.mahStress;
     wellNext = function(){
-
-        wGeometry = {
-            ohDiameter:Number(OH),
-            hvDepht: Number(L),
-            opGradient: Number(OBG),
-            ftGradient: Number(FTG),
-            bpConstant: Number(Biot),
-            pPressure: Number(Pp),
-            imDensity: Number(Pminitial),
-            fffRadius: Number(rd),
-            fpRatio: Number(yFormation),
-            ymFormation: Number(eFormation),
-            thcFormation: Number(kForm),
-            cleFormation: Number(aForm),
-            tStress:Number(oTect),
-            ohRadius: rc,
-            wfTemperature: tiGeo,
-            vStress: oZ,
-            mihStress: oHmin,
-            mahStress: oHmax
+        var registros = [OH,L,OBG,FTG,Biot,Pp,Pminitial,rd,yFormation,eFormation,kForm,aForm,oTect,rc,tiGeo,oZ,oHmin,oHmax];
+        console.log(registros.indexOf(isNaN()))
+        if(registros.indexOf(undefined) != -1){
+            alert("ningún campo puede permanecer vacío");
+            
+        }else if(registros.indexOf(isNaN()) == 0){
+            alert("No puede haber texto en ningún campo ")
+            console.log(registros.indexOf(isNaN()))
+        }else{
+            $window.location.href = "#!casingTipology";
         }
+        // wGeometry = {
+        //     ohDiameter:Number(OH),
+        //     hvDepht: Number(L),
+        //     opGradient: Number(OBG),
+        //     ftGradient: Number(FTG),
+        //     bpConstant: Number(Biot),
+        //     pPressure: Number(Pp),
+        //     imDensity: Number(Pminitial),
+        //     fffRadius: Number(rd),
+        //     fpRatio: Number(yFormation),
+        //     ymFormation: Number(eFormation),
+        //     thcFormation: Number(kForm),
+        //     cleFormation: Number(aForm),
+        //     tStress:Number(oTect),
+        //     ohRadius: rc,
+        //     wfTemperature: tiGeo,
+        //     vStress: oZ,
+        //     mihStress: oHmin,
+        //     mahStress: oHmax
+        // }
         
 
 
-        console.log(wGeometry)
+        // console.log(wGeometry)
 
 
 
-        $window.location.href = "#!casingTipology";
+       
        
     }
     
