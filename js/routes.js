@@ -106,9 +106,6 @@ app.controller('wellGeometry', function($scope, $window) {
         if(registros.indexOf(undefined) != -1){
             alert("ningún campo puede permanecer vacío");
             
-        }else if(registros.indexOf(isNaN()) == 0){
-            alert("No puede haber texto en ningún campo ")
-            console.log(registros.indexOf(isNaN()))
         }else{
             $window.location.href = "#!casingTipology";
         }
@@ -179,24 +176,29 @@ app.controller('casingTipology', function($scope,$window) {
     
     casingNext = function(){
         
-        caTipology = {
-            cDiameter: Number(ODcasing),
-            cWeight: Number(Wcasing),
-            ciDiameter: Number(IDcasing),
-            cpRatio: Number(Ysteel),
-            ymCasing: Number(Esteel),
-            tcCasing: Number(Ksteel),
-            cleCasing: Number(Asteel),
-            icRadius: ra,
-            ecRadius: rb,
-            cThickness: THcasing
-        }
+        // caTipology = {
+        //     cDiameter: Number(ODcasing),
+        //     cWeight: Number(Wcasing),
+        //     ciDiameter: Number(IDcasing),
+        //     cpRatio: Number(Ysteel),
+        //     ymCasing: Number(Esteel),
+        //     tcCasing: Number(Ksteel),
+        //     cleCasing: Number(Asteel),
+        //     icRadius: ra,
+        //     ecRadius: rb,
+        //     cThickness: THcasing
+        // }
    
-        console.log(wGeometry)
-        console.log(caTipology)
-
-
-        $window.location.href = "#!cementTipology";
+        // console.log(wGeometry)
+        // console.log(caTipology)
+       var casingArr = [ODcasing, Wcasing, IDcasing, Ysteel, Esteel, Ksteel, Asteel, ra, rb, THcasing]
+       if(casingArr.indexOf(undefined) != -1){
+        alert("ningún campo puede permanecer vacío");
+        
+        }else{
+             $window.location.href = "#!cementTipology";
+        }
+       
     }
     casingPrev = function(){
         $window.location.href = "#!wellGeometry";
@@ -217,21 +219,28 @@ app.controller('cementTipology', function($scope,$window) {
         C = $scope.cCement;
         O = $scope.aiFriction;
 
-        ceTipology = {
-            cDensity: Number(Pcement),
-            ucStrength: Number(UCS),
-            tStrength: Number(To),
-            cpRatio: Number(ycement),
-            ymCement: Number(Ecement),
-            tcCement: Number(Kcement),
-            cleCement: Number(Acement),
-            cCement: Number(C),
-            aiFriction: Number(O)
+    //     ceTipology = {
+    //         cDensity: Number(Pcement),
+    //         ucStrength: Number(UCS),
+    //         tStrength: Number(To),
+    //         cpRatio: Number(ycement),
+    //         ymCement: Number(Ecement),
+    //         tcCement: Number(Kcement),
+    //         cleCement: Number(Acement),
+    //         cCement: Number(C),
+    //         aiFriction: Number(O)
+    //     }
+
+    //    console.log(ceTipology)
+    var cementArr = [Pcement, UCS, To, ycement, Ecement,Kcement, Acement, C, O]
+
+        if(cementArr.indexOf(undefined) != -1){
+            alert("ningún campo puede permanecer vacío");
+            
+        }else{
+            $window.location.href ="#!inputParameters"
         }
-
-       console.log(ceTipology)
-
-        $window.location.href ="#!inputParameters"
+        
     }
     cementPrev = function(){
         $window.location.href = "#!casingTipology";
@@ -260,21 +269,26 @@ app.controller('inputParameters', function($scope,$window) {
 
         }
         calculate = function(){
-            iParameters = {
-                fiPressure: Number(Pifinal),
-                fiTemperature: Number(Tfinal),
-                iiPressure: Pinitial,
-                ipChange: Pi,
-                iiTemperature: ipTigeo,
-                itChange: T1
+            // iParameters = {
+            //     fiPressure: Number(Pifinal),
+            //     fiTemperature: Number(Tfinal),
+            //     iiPressure: Pinitial,
+            //     ipChange: Pi,
+            //     iiTemperature: ipTigeo,
+            //     itChange: T1
 
+            // }
+            // console.log(wGeometry)
+            // console.log(caTipology)
+            // console.log(ceTipology)
+            // console.log(iParameters)
+            var inpParamsArr = [Pinitial, Pifinal, Pi, Tinitial, Tfinal, T1]
+            if(inpParamsArr.indexOf(undefined) != -1){
+                alert("ningún campo puede permanecer vacío");
+                
             }
-            console.log(wGeometry)
-            console.log(caTipology)
-            console.log(ceTipology)
-            console.log(iParameters)
-
-            if(confirm("¿Desea guardar los resultados y proceder?") === true){
+            else{
+                (confirm("¿Desea guardar los resultados y proceder?") === true)
                 $window.location.href = "#!save";
             }
             
