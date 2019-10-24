@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 09, 2019 at 05:24 PM
+-- Generation Time: Oct 24, 2019 at 11:12 PM
 -- Server version: 10.3.16-MariaDB
 -- PHP Version: 7.1.30
 
@@ -54,6 +54,14 @@ CREATE TABLE `cement` (
   `ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `cement`
+--
+
+INSERT INTO `cement` (`ID`) VALUES
+(1),
+(2);
+
 -- --------------------------------------------------------
 
 --
@@ -102,6 +110,14 @@ CREATE TABLE `steel` (
   `ID` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `steel`
+--
+
+INSERT INTO `steel` (`ID`) VALUES
+(1),
+(2);
+
 -- --------------------------------------------------------
 
 --
@@ -111,8 +127,23 @@ CREATE TABLE `steel` (
 CREATE TABLE `system` (
   `ID` int(11) NOT NULL,
   `NAME` varchar(32) NOT NULL,
-  `DATE` date NOT NULL
+  `DATE` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `createby` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `system`
+--
+
+INSERT INTO `system` (`ID`, `NAME`, `DATE`, `createby`) VALUES
+(1, 'nameRegister', '0000-00-00 00:00:00', 'TestUser'),
+(2, '+nameRegister+', '0000-00-00 00:00:00', 'TestUser'),
+(3, 'dfg', '2019-10-23 17:01:32', 'TestUser'),
+(4, 'Test', '2019-10-23 17:07:34', 'TestUser'),
+(5, '<Test>', '2019-10-24 15:45:34', 'TestUser'),
+(6, '<test>', '2019-10-24 15:46:53', 'TestUser'),
+(7, 'werwr', '2019-10-24 16:28:26', 'TestUser'),
+(8, 'Pablo Seijas', '2019-10-24 17:46:31', 'TestUser');
 
 -- --------------------------------------------------------
 
@@ -203,13 +234,13 @@ ALTER TABLE `wellgeometry`
 -- AUTO_INCREMENT for table `casingtipology`
 --
 ALTER TABLE `casingtipology`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `cement`
 --
 ALTER TABLE `cement`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `cementtipology`
@@ -227,19 +258,19 @@ ALTER TABLE `inputparameters`
 -- AUTO_INCREMENT for table `steel`
 --
 ALTER TABLE `steel`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `system`
 --
 ALTER TABLE `system`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `wellgeometry`
 --
 ALTER TABLE `wellgeometry`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
