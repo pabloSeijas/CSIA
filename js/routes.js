@@ -18,7 +18,7 @@ connection.connect(function(err){
 var app = angular.module("CSIA-app", ["ngRoute"]);
 
 app.config(function($routeProvider) {$routeProvider
-    .when("/", {templateUrl : "./wellGeometry/wellGeometry.html"
+    .when("/", {templateUrl : "./save/save.html"
     })
     .when("/casingTipology", {templateUrl : "./casingTipology/casingTipology.html"
     })
@@ -30,7 +30,8 @@ app.config(function($routeProvider) {$routeProvider
     })
     .when("/result", {templateUrl:"./result/result.html"
     })
-    .when("/save", {templateUrl : "./save/save.html"})
+    .when("/save", {templateUrl : "./save/save.html"
+    })
 });
 
 var ipL, ipTigeo, ippmiInitial,wGeometry,caTipology,ceTipology,iParameters;
@@ -47,7 +48,7 @@ app.controller('wellGeometry', function($scope, $window) {
     
     
    $scope.calculateWell = function(){
-        // let query = 'SELECT * FROM wellgeometry'
+        // let query = "INSERT INTO `wellgeometry`(SYSTEM_ID`, `OHD`, `HVD`, `OPG`, `FTG`, `BPC`, `PP`, `IMD`, `FFFR`, `FPR`, `YMF`, `TCF`, `CLEF`, `TS`, `OOH`, `WFT`, `VS`, `MNHS`, `MXHS`) VALUES ('"+ OH +"', '"+ L +"', '"+OBG+"', '"+FTG+"', '"+Biot+"', '"+Pp+"', '"+Pminitial+"', '"+rd+"', '"+yFormation+"', '"+eFormation+"', '"+kForm+"', '"+aForm+"', '"+oTect+"', '"+rc+"', '"+tiGeo+"', '"+oZ+"', '"+oHmin+"', '"+oHmax+")"
         //     connection.query(query, function(err, rows, fields){
         //         if(err){
         //             console.log('Hubo un Error al realizar la consulta');
@@ -55,9 +56,7 @@ app.controller('wellGeometry', function($scope, $window) {
         //             return
         //         }
             
-        //         let row = rows[0]
-        //         console.log(row.OHD)
-        //     $scope.ohDiameter = row.OHD; 
+              
         //     connection.end(function(){
 
         //     });
@@ -107,6 +106,12 @@ app.controller('wellGeometry', function($scope, $window) {
             alert("ningún campo puede permanecer vacío");
             
         }else{
+            var sql = "INSERT INTO `wellgeometry`(`SYSTEM_ID`, `OHD`, `HVD`, `OPG`, `FTG`, `BPC`, `PP`, `IMD`, `FFFR`, `FPR`, `YMF`, `TCF`, `CLEF`, `TS`, `OOH`, `WFT`, `VS`, `MNHS`, `MXHS`) VALUES ('"+ 1 +"','"+ OH +"', '"+ L +"', '"+OBG+"', '"+FTG+"', '"+Biot+"', '"+Pp+"', '"+Pminitial+"', '"+rd+"', '"+yFormation+"', '"+eFormation+"', '"+kForm+"', '"+aForm+"', '"+oTect+"', '"+rc+"', '"+tiGeo+"', '"+oZ+"', '"+oHmin+"', '"+oHmax+"')";
+            connection.query(sql, function (err, result) {
+              if (err) throw err;
+              console.log("1 record inserted");
+            });
+           
             $window.location.href = "#!casingTipology";
         }
         // wGeometry = {
@@ -196,6 +201,11 @@ app.controller('casingTipology', function($scope,$window) {
         alert("ningún campo puede permanecer vacío");
         
         }else{
+            var sql = "INSERT INTO `casingtipology`(`SYSTEM_ID`, `STEEL`, `CD`, `CW`, `CID`, `CPR`, `YMC`, `TCC`, `CLEC`, `ICR`, `ECR`, `CT`) VALUES ('"+1+"','"+2+"','"+ODcasing+"','"+Wcasing+"','"+IDcasing+"','"+Ysteel+"','"+Esteel+"','"+Ksteel+"','"+Asteel+"','"+ra+"','"+rb+"','"+THcasing+"')";
+            connection.query(sql, function (err, result) {
+              if (err) throw err;
+              console.log("1 record inserted");
+            });
              $window.location.href = "#!cementTipology";
         }
        
@@ -238,6 +248,11 @@ app.controller('cementTipology', function($scope,$window) {
             alert("ningún campo puede permanecer vacío");
             
         }else{
+            var sql = "INSERT INTO `cementtipology`(`SYSTEM_ID`, `CEMENT`, `CD`, `UCS`, `TS`, `CPR`, `YMC`, `TCC`, `CLEC`, `CTC`, `AIF`) VALUES ('"+ 1 +"','"+ 1 +"','"+ Pcement +"','"+ UCS +"','"+To+"','"+ycement+"','"+Ecement+"','"+Kcement+"','"+Acement+"','"+C+"','"+O+"')";
+            connection.query(sql, function (err, result) {
+              if (err) throw err;
+              console.log("1 record inserted");
+            });
             $window.location.href ="#!inputParameters"
         }
         
@@ -289,7 +304,12 @@ app.controller('inputParameters', function($scope,$window) {
             }
             else{
                 (confirm("¿Desea guardar los resultados y proceder?") === true)
-                $window.location.href = "#!save";
+                var sql = "INSERT INTO `inputparameters`(`SYSTEM_ID`, `IIP`, `FIP`, `IPC`, `IIT`, `FIT`, `ITC`) VALUES ('"+ 1 +"','"+ Pinitial +"','"+ Pifinal +"','"+ Pi +"', '"+ Tinitial +"','"+ Tfinal +"','"+ T1 +"')";
+                connection.query(sql, function (err, result) {
+                  if (err) throw err;
+                  console.log("1 record inserted");
+                });
+                // $window.location.href = "#!result";
             }
             
         }    
@@ -304,13 +324,22 @@ app.controller('saveData', function($scope,$window) {
     }
     save = function(){
         var nameRegister = $scope.name;
+        var currDate = new Date();
         if(nameRegister === undefined){
             
 
 
         }else{
-            if(confirm("¿Está seguro de guardar los datos?") === true){
-                $window.location.href = "#!result";
+            if(confirm("¿Está seguro de guardar el registro con este nombre?") === true){
+               var sql =  "INSERT INTO `system`(`NAME`, `createby`) VALUES ('"+ nameRegister +"', 'TestUser')"
+                
+                connection.query(sql, function (err, result) {
+                    if (err) throw err;
+                    console.log("1 record inserted");
+                });
+                  
+                $window.location.href = "#!wellGeometry";
+               
             }
             
         }
