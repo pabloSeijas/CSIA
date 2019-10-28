@@ -34,7 +34,7 @@ app.config(function($routeProvider) {$routeProvider
     })
 });
 
-var ipL, ipTigeo, ippmiInitial,wGeometry,caTipology,ceTipology,iParameters;
+var ipL, ipTigeo, ippmiInitial,wGeometry,caTipology,ceTipology,iParameters, rcG,ycementG,rbG,T1G,AsteelG,YsteelG;
 
 app.controller('main',function($scope, $location){
     $scope.getClass = function (path) {
@@ -90,6 +90,7 @@ app.controller('wellGeometry', function($scope, $window) {
         ipL = L;
         ipTigeo = tiGeo;
         ippmiInitial = Pminitial;
+        rcG = rc;
        
 
     }
@@ -170,6 +171,9 @@ app.controller('casingTipology', function($scope,$window) {
     $scope.icRadius = ra;
     $scope.ecRadius = rb;
     $scope.cThickness = THcasing
+    rbG = rb;
+    AsteelG = Asteel;
+    YsteelG = Ysteel;
     
     }
 
@@ -228,6 +232,7 @@ app.controller('cementTipology', function($scope,$window) {
         Acement = $scope.cleCement;
         C = $scope.cCement;
         O = $scope.aiFriction;
+        ycementG = ycement;
 
     //     ceTipology = {
     //         cDensity: Number(Pcement),
@@ -281,6 +286,7 @@ app.controller('inputParameters', function($scope,$window) {
 
             T1 = Tfinal - Tinitial;
             $scope.itChange = T1 ;
+            T1G = T1;
 
         }
         calculate = function(){
@@ -365,4 +371,14 @@ app.controller('result', function($scope, $window, $timeout) {
     back = function(){
         $window.location.href ="#!save"
     }
+    // YcementG elevado al cuadrado - 1
+    var ycementexp = Math.pow(ycementG, 2) - 1;
+    // rbG elevado al cuadrado
+    var rbexp = Math.pow(rbG,2);
+    // rc elevado al cuadrado
+    var rcexp = Math.pow(rcG,2);
+
+    var T1_Steel = AsteelG * T1G *(YsteelG);
+
+    var A_cem = (ycementexp)*(((rbexp)/(rbexp-rcexp))+((rcexp)/(rbexp-rcexp)))
 });
