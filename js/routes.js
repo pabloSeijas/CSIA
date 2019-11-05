@@ -34,7 +34,7 @@ app.config(function($routeProvider) {$routeProvider
     })
 });
 
-var ipL, ipTigeo, ippmiInitial,wGeometry,caTipology,ceTipology,iParameters;
+var ipL, ipTigeo, ippmiInitial,wGeometry,caTipology,ceTipology,iParameters,PiG,EsteelG,e_formG,ecementG,PiFG,raG,rcG,ycementG,yFormG,rbG,T1G,T2G,AsteelG,YsteelG,aFormG,aCementG,rdG;
 
 app.controller('main',function($scope, $location){
     $scope.getClass = function (path) {
@@ -87,10 +87,15 @@ app.controller('wellGeometry', function($scope, $window) {
         $scope.vStress = oZ;
         $scope.mihStress = oHmin;
         $scope.mahStress = oHmax;
+        // Globals 
         ipL = L;
         ipTigeo = tiGeo;
         ippmiInitial = Pminitial;
-       
+        rcG = rc;
+        aFormG= aForm;
+        yFormG = yFormation;
+        rdG = rd;
+        e_formG = eFormation;
 
     }
     
@@ -170,6 +175,12 @@ app.controller('casingTipology', function($scope,$window) {
     $scope.icRadius = ra;
     $scope.ecRadius = rb;
     $scope.cThickness = THcasing
+    // Globals 
+    rbG = rb;
+    AsteelG = Asteel;
+    YsteelG = Ysteel;
+    raG = ra;
+    EsteelG = Esteel;
     
     }
 
@@ -228,6 +239,10 @@ app.controller('cementTipology', function($scope,$window) {
         Acement = $scope.cleCement;
         C = $scope.cCement;
         O = $scope.aiFriction;
+        ycementG = ycement;
+        aCementG = Acement;
+        ecementG = Ecement;
+    
 
     //     ceTipology = {
     //         cDensity: Number(Pcement),
@@ -281,6 +296,9 @@ app.controller('inputParameters', function($scope,$window) {
 
             T1 = Tfinal - Tinitial;
             $scope.itChange = T1 ;
+            T1G = T1;
+            PiG = Pi;
+            PiFG = Pifinal; 
 
         }
         calculate = function(){
@@ -309,7 +327,7 @@ app.controller('inputParameters', function($scope,$window) {
                   if (err) throw err;
                   console.log("1 record inserted");
                 });
-                // $window.location.href = "#!result";
+                $window.location.href = "#!result";
             }
             
         }    
@@ -365,4 +383,31 @@ app.controller('result', function($scope, $window, $timeout) {
     back = function(){
         $window.location.href ="#!save"
     }
+    // YcementG elevado al cuadrado
+    var ycementexp = Math.pow(ycementG, 2);
+    // rbG elevado al cuadrado
+    var rbexp = Math.pow(rbG,2);
+    // rc elevado al cuadrado
+    var rcexp = Math.pow(rcG,2);
+    // ySteel elevado al cuadrado
+    var Ysteelexp = Math.pow(YsteelG,2);
+    // raG elevado al cuadrado
+    var raexp = Math.pow(raG, 2);
+    // yForm elevado al cuadrado
+    var yFormexp = Math.pow(yFormG,2);
+    // rd elevado al cuadrado
+    var rdexp = Math.pow(rdG, 2);
+
+    var T1_Steel = AsteelG * T1G * (YsteelG);
+    // var T2_Steel = AsteelG * T2G * (YsteelG); incompleta por AlphaT2
+    var T1_cem = aCementG * T1G * (ycementG);
+
+    var A_cem = (ycementexp - 1)*(((rbexp)/(rbexp-rcexp))+((rcexp)/(rbexp-rcexp)));
+    var A_Steel = (Ysteelexp - 1)*(((raexp)/(raexp - rbexp))+((rbexp)/(raexp - rbexp)));
+    var A_Form = (yFormexp - 1)*((rcexp)/(rcexp - rdexp)) + ((rdexp)/(rcexp - rdexp));
+    var B_1 = ((2 * PiG * raexp * rbG * (Ysteelexp - 1)) / (EsteelG * (raexp - rbexp)));
+    var B_2 = ((2 * PiFG * rcG * rdexp * (yFormexp - 1)) / (e_formG * (rcexp - rdexp)));
+    var UCS = 0.0354 * Math.pow(ecementG * Math.pow(10,-9)) + 3.1509 * (ecementG * Math.pow(10,-9)) + 4.0642;
+    var T0 = UCS * Math.pow(10,6/10);
+
 });
