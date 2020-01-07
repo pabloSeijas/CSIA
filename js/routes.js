@@ -410,4 +410,15 @@ app.controller('result', function($scope, $window, $timeout) {
     var UCS = 0.0354 * Math.pow(ecementG * Math.pow(10,-9)) + 3.1509 * (ecementG * Math.pow(10,-9)) + 4.0642;
     var T0 = UCS * Math.pow(10,6/10);
 
+    /**
+     * Formulara para calcular LOGARITMOS NATURALES
+     */
+    //  let logaritmo1 = Math.pow(-10,7)*Mat.log((rd/rc)/Math.pow(-10,7))
+    //  let logaritmo2 = Math.pow(-10,7)*Mat.log((rc/rb)/Math.pow(-10,7))
+
+
+    // var T2 =  (T1 * logaritmo1 * Kcement) / (logaritmo1 * Kcement) + (logaritmo2 * kForm)
+
+    
 });
+
