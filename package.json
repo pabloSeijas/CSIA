@@ -13,7 +13,7 @@
     "angular-route": "^1.7.8",
     "app": "^0.1.0",
     "bootstrap": "^4.3.1",
-    "electron": "^5.0.1",
+    "electron": "^9.4.0",
     "jquery": "^3.4.1",
     "main": "^1000.0.1",
     "mysql": "^2.17.1",
